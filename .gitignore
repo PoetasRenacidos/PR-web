@@ -1,1 +1,3 @@
 specs/Ficha_Requerimientos.xlsx
+*.sqlite3
+__pycache__/
