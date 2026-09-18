@@ -8,7 +8,7 @@ from django.forms import PasswordInput
 admin.site.register(UsuarioBase)
 admin.site.register(UsuarioTallerista)
 
-@admin.register(UsuarioBase)
+
 class UsuarioBaseAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
@@ -17,7 +17,6 @@ class UsuarioBaseAdmin(admin.ModelAdmin):
         return form
 
 
-@admin.register(UsuarioTallerista)
 class UsuarioTallerista(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
