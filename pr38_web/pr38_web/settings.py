@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+ 
 """
 Django settings for pr38_web project.
 
@@ -20,7 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z^(vy671__lniv5zxy!4z=owx^s2gymrv#%!a4p8j0$1t%$k!+'
+import configparser
+security_config = configparser.ConfigParser()
+security_config.read('secrets.ini')
+
+SECRET_KEY = security_config['secret_key']['ULTRA_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'users'
+    'apps.users',
+    'apps.Escuela',
+    'apps.Mercado',
+    'apps.Publicaciones',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +87,12 @@ WSGI_APPLICATION = 'pr38_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': security_config['database']['DB_NAME'],
+        'USER': security_config['database']['DB_USER'],
+        'PASSWORD': security_config['database']['DB_PASSWORD'],
+        'HOST': security_config['database']['DB_HOST'],
+        'PORT': security_config['database']['DB_PORT']
     }
 }
 
@@ -123,3 +137,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Configuración de multimedia (default -> carpeta 'Media')
+
+MEDIA_ROOT = BASE_DIR / 'Media'
+MEDIA_URL = '/media/'
