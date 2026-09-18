@@ -13,7 +13,7 @@ class UsuarioBaseAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         if 'password' in form.base_fields:
-            form.base_fields['password'].widget = PasswordInput(render_value=True)
+            form.base_fields['password'].widget = PasswordInput(render_value=False)
         return form
 
 
@@ -21,5 +21,5 @@ class UsuarioTallerista(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         if 'password' in form.base_fields:
-            form.base_fields['password'].widget = PasswordInput(render_value=True)
+            form.base_fields['password'].widget = PasswordInput(render_value=False)
         return form
