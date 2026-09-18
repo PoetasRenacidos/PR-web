@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 import configparser
 security_config = configparser.ConfigParser()
-security_config.read('secrets.ini')
+security_config.read(BASE_DIR / 'pr38_web' / 'secrets.ini')
 
 SECRET_KEY = security_config['secret_key']['ULTRA_SECRET_KEY']
 

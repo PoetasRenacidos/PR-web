@@ -17,19 +17,22 @@ ARTES_CHOICES = [
 ]
 
 class UsuarioBase(models.Model):
-    name = models.CharField(max_length=120, verbose_name="Nombre completo")
-    email = models.EmailField(unique=True, db_index=True, verbose_name="Correo electrónico")
-    phone_number = models.BigIntegerField(blank=True, null=True, max_length=20, verbose_name="Teléfono")
-    password = models.CharField(max_length=128, verbose_name="Contraseña")
+    name = models.CharField(max_length=60, verbose_name="Nombre completo")
+    nick_name = models.CharField(unique=True, max_length=40)
+    email = models.EmailField(unique=True, verbose_name="Correo electrónico")
     fav_art = models.CharField(max_length=30, choices=ARTES_CHOICES, verbose_name="Arte favorito")
+    phone_number = models.PositiveBigIntegerField(blank=True, null=True, verbose_name="Teléfono")
+    organization = models.CharField(max_length=254,blank=True,null=True,verbose_name="Organización (si aplica)")
     city = models.CharField(blank=True, null=True, max_length=50, verbose_name="Ciudad de residencia")
+    password = models.CharField(max_length=128, verbose_name="Contraseña")
 
 class UsuarioTallerista(models.Model):
     name = models.CharField(max_length=120, verbose_name="Nombre completo")
-    email = models.EmailField(unique=True, db_index=True, verbose_name="Correo electrónico")
-    phone_number = models.BigIntegerField(blank=True, null=True, max_length=20, verbose_name="Teléfono")
+    nick_name = models.CharField(unique=True, max_length=40)
+    email = models.EmailField(unique=True, verbose_name="Email")
+    phone_number = models.PositiveBigIntegerField(blank=True, null=True, verbose_name="Teléfono")
     password = models.CharField(max_length=128, default="", verbose_name="Contraseña")
     profession = models.CharField(max_length=60, choices=ARTES_CHOICES, verbose_name="Rubro/Profesión")
-    years_experience = models.IntegerField(verbose_name="Años de experiencia")
+    years_experience = models.PositiveSmallIntegerField(verbose_name="Años de experiencia")
     city = models.CharField(blank=True, null=True, max_length=50, verbose_name="Ciudad de residencia")
     is_staff = models.BooleanField(default=False)
