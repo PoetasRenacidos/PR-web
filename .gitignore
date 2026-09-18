@@ -1,4 +1,9 @@
 specs/Ficha_Requerimientos.xlsx
+
 *.sqlite3
+
 __pycache__/
+
 pr38_web/pr38_web/secrets.ini
+
+pr38_web/*.log

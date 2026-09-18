@@ -1,3 +1,8 @@
-from django.contrib import admin
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 
-# Register your models here.
+from django.contrib import admin
+from apps.Publicaciones.models import ObraLiteraria, Post
+
+admin.site.register(ObraLiteraria)
+admin.site.register(Post)

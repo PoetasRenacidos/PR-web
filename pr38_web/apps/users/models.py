@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.contrib.auth.hashers import make_password
 
 # Las 8 artes clásicas/contemporáneas para el perfil del usuario/tallerista
 # Campo de tipo CHOICE para que el usuario seleccione una única opción.
@@ -26,6 +27,12 @@ class UsuarioBase(models.Model):
     city = models.CharField(blank=True, null=True, max_length=50, verbose_name="Ciudad de residencia")
     password = models.CharField(max_length=128, verbose_name="Contraseña")
 
+    def save(self, *args, **kwargs): # Encriptación automática de 'password'
+        if self.password and not self.password.startswith('pbkdf2_'): # la encripta si no lo está
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)
+
+
 class UsuarioTallerista(models.Model):
     name = models.CharField(max_length=120, verbose_name="Nombre completo")
     nick_name = models.CharField(unique=True, max_length=40)
@@ -36,3 +43,8 @@ class UsuarioTallerista(models.Model):
     years_experience = models.PositiveSmallIntegerField(verbose_name="Años de experiencia")
     city = models.CharField(blank=True, null=True, max_length=50, verbose_name="Ciudad de residencia")
     is_staff = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs): # Encriptación automática de 'password'
+        if self.password and not self.password.startswith('pbkdf2_'): # la encripta si no lo está
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)

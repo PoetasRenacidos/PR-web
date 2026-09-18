@@ -1,3 +1,7 @@
-from django.contrib import admin
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
 
-# Register your models here.
+from django.contrib import admin
+from apps.Mercado.models import Producto
+
+admin.site.register(Producto)
