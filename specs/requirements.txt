@@ -1,44 +1,11 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: win-64
-# created-by: Poetas Renacidos
-
-# packages in environment at C:\Users\USER\anaconda3\envs\pr38_web:
-#
-# Name                    Version                   Build  Channel
-asgiref                   3.8.1            py38haa95532_0  
-backports                 1.1                pyhd3eb1b0_1  
-backports.zoneinfo        0.2.1            py38h2bbff1b_0  
-ca-certificates           2026.8.13            haa95532_0  
-django                    4.1              py38haa95532_0  
-freetype                  2.14.1               hfbffc0b_0  
-jpeg                      9f                   h89d5625_1  
-lcms2                     2.16                 hb4a4139_0  
-lerc                      3.0                  hd77b12b_0  
-libdeflate                1.17                 h2bbff1b_1  
-libffi                    3.4.8                h42d73b9_3  
-libpng                    1.6.56               h2854ad3_0  
-libtiff                   4.5.1                hd77b12b_0  
-libwebp-base              1.6.0                hbf3958f_0  
-libzlib                   1.3.2                h1c6eee0_0  
-lz4-c                     1.9.4                h1c6eee0_5  
-openjpeg                  2.5.2                hae555c5_0  
-openssl                   3.5.8                hbb43b14_0  
-pillow                    10.4.0           py38h827c3e9_0  
-pip                       25.0.1                   pypi_0    pypi
-psycopg2-binary           2.9.9                    pypi_0    pypi
-python                    3.8.20               h8205438_0  
-python-tzdata             2026.2             pyhd3eb1b0_0  
-setuptools                75.3.4                   pypi_0    pypi
-sqlite                    3.53.2               hee5a0db_0  
-sqlparse                  0.4.4            py38haa95532_0  
-typing_extensions         4.11.0           py38haa95532_0  
-tzdata                    2026c                he532380_0  
-ucrt                      10.0.22621.0         haa95532_0  
-vc                        14.3                h2df5915_12  
-vc14_runtime              14.44.35208         h4927774_12  
-vs2015_runtime            14.44.35208         ha6b5a95_12  
-wheel                     0.45.1                   pypi_0    pypi
-xz                        5.8.2                h53af0af_0  
-zlib                      1.3.2                h1c6eee0_0  
-zstd                      1.5.7                h56299aa_0  
+asgiref==3.8.1
+backports.zoneinfo==0.2.1
+Django==4.1
+pillow==10.4.0
+pip==25.0.1
+psycopg2-binary==2.9.9
+setuptools==75.3.4
+sqlparse==0.4.4
+typing_extensions==4.11.0
+tzdata==2026.2
+wheel==0.45.1
